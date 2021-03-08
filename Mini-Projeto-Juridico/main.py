@@ -15,7 +15,7 @@ def num_decisoes(cpf):
       elif lista[i].decisao == "indeferido":
         numindef += 1
   return "Vezes deferido: {}\nVezes indeferido: {}".format(numdef,numindef)
-def lista_clientes():
+def lista_clientes(codigo):
   clientes = []
   for i in range(len(lista)):
     if lista[i].advogado.cod_oab == codigo:
@@ -143,8 +143,7 @@ while menu != 9:
 
   elif menu == 4:
     codigo = int(input("Código da OAB:"))
-    print(lista_clientes())
-
+    print("Clientes:",lista_clientes(codigo))
 
 
   elif menu == 5:
