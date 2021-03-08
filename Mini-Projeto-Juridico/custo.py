@@ -3,18 +3,21 @@ class Custo:
     self._data = data
     self._descricao_custo = descricao_custo
     self._valor = valor
+
   @property
   def data(self):
     return self._data
   @data.setter
   def data(self, nova_data):
     self._data= nova_data
+
   @property
   def descricao_custo(self):
     return self._descricao_custo
   @descricao_custo.setter
   def descricao_custo(self, nova_descricao_custo):
     self._descricao_custo = nova_descricao_custo
+    
   @property
   def valor(self):
     return self._valor

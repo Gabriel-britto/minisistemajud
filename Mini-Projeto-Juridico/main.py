@@ -5,6 +5,7 @@ from advogado import Advogado
 from audiencia import Audiencia
 from custo import Custo
 from pessoa import Pessoa
+
 def num_decisoes(cpf):
   numdef = numindef = 0
   print("Contagem:")
@@ -15,6 +16,7 @@ def num_decisoes(cpf):
       elif lista[i].decisao == "indeferido":
         numindef += 1
   return "Vezes deferido: {}\nVezes indeferido: {}".format(numdef,numindef)
+
 def lista_clientes(codigo):
   clientes = []
   for i in range(len(lista)):
@@ -22,18 +24,21 @@ def lista_clientes(codigo):
       cc= lista[i].pessoa.nome
       clientes.append(cc)
   return clientes
+
 def custo_total_pessoa(cpf):
   totalpessoa = 0
   for i in range(len(lista)):
     if lista[i].pessoa.cpf == valorcpf:
       totalpessoa += lista[i].custo._valor
   return totalpessoa
+
 def custo_total_adv(codigo):
   totaladvogado = 0
   for i in range(len(lista)):
     if lista[i].advogado.cod_oab == codigo:
       totaladvogado += lista[i].custo._valor
   return totaladvogado
+
 def busca_processo(cpfpessoa):
   if len(lista) > 0:
     buscatempocpf = []
@@ -42,6 +47,7 @@ def busca_processo(cpfpessoa):
         descricoescpf = ("Audiencia {} {}: {}\nRecomendação: {}".format(i+1,lista[i].audiencias.data_aud,lista[i].descricao, lista[i].audiencias.recomendacao))
         buscatempocpf.append(descricoescpf)
     return buscatempocpf
+
 def audiencias_temp(buscprocesso):
   if len(listadura) > 0:
     buscatempo = []
@@ -50,6 +56,7 @@ def audiencias_temp(buscprocesso):
         descricoes = ("Audiencia {} {}: {}\nRecomendação: {}".format(i+1,lista[i].audiencias.data_aud,lista[i].descricao, lista[i].audiencias.recomendacao))
         buscatempo.append(descricoes)
     return buscatempo
+
 def modo_teste():
   teste1 = Processo("Latrocinio",Custo("23/05/2020","Abertura do processo",500),"deferido", "PROCESSO DEFERIDO AGUARDANDO FINALIZAÇÃO",Pessoa("111.222.333-44", "João da silva","1,2,3"),Advogado(5552,"Joaquim S. Cavalcante","1,2"),Audiencia("28/05/2020","Arquivamento do processo",30))
   teste2 = Processo("Extorsão",Custo("10/09/2010","Danos",5000),"deferido", "PROCESSO DEFERIDO AGUARDANDO FINALIZAÇÃO",Pessoa("111.222.444-55", "José tavares","1,2,3"),Advogado(3452,"João Cavalcante","1,2"),Audiencia("10/10/2010","Liberdade provisória",35))
@@ -63,6 +70,7 @@ def modo_teste():
   lista.append(teste2)
   listadura.append(teste2_audiencia)
   custototal.append(teste2_custo)
+
 lista = []
 listadura = []
 custototal = []
@@ -152,6 +160,7 @@ while menu != 9:
     menu_custo = 0
     while menu_custo != 4:
       menu_custo = int(input("> "))
+
       if menu_custo == 1:
         if len(custototal) > 0:
           for i in range(len(custototal)):
@@ -165,6 +174,7 @@ while menu != 9:
         codoab = int(input("Digite o OAB do advogado: "))
         valoradv = custo_total_adv(codoab)
         print("Custo total dos processos do advogado: {}".format(valoradv))
+
       elif menu_custo == 3:
         valorcpf = input("Digite o CPF da pessoa: ")
         valorpessoa = custo_total_pessoa(valorcpf)
@@ -173,6 +183,7 @@ while menu != 9:
   elif menu == 6:
     pesqcpf = input("Digite o CPF de quem você deseja pesquisar:")
     print(num_decisoes(pesqcpf))
+    
   elif menu == 7:
     print("-"*15,"Processos Cadastrados:","-"*15)
     for i in range(len(lista)):

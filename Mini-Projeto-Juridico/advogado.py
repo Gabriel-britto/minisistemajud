@@ -24,8 +24,14 @@ class Advogado:
   @processos.setter
   def processos(self, novo_processo):
     self._processosadv = novo_processo
-  def lista_clientes():
+  
+  def lista_clientes(codigo):
+    clientes = []
     for i in range(len(lista)):
-      return lista[i].pessoa.nome
+      if lista[i].advogado.cod_oab == codigo:
+        cc= lista[i].pessoa.nome
+        clientes.append(cc)
+    return clientes
+
   def __str__(self):
     return "OAB: {}, Nome: {}, Processos: {}".format(self.cod_oab, self.nome_adv, self.processos)
