@@ -1,0 +1,30 @@
+class Processo:
+  def __init__(self, descricao, custo, decisao, status, pessoa, advogado, audiencias):
+    self._descricao = descricao #String com a descrição do Processo  
+    self._custo = custo #Custo do Processo
+    self._decisao = decisao #Decisão final do processo: Deferido ou intedeferido
+    self._status = status #String de status do descorrer do processo
+    self._pessoa = pessoa #Pessoa do processo
+    self._advogado = advogado #Advogado do Processo
+    self._audiencias = audiencias #Lista de audiencias
+  @property
+  def descricao(self):
+    return self._descricao
+  @descricao.setter
+  def descricao(self, nova_descricao):
+    self._descricao= nova_descricao
+  @property
+  def custo(self):
+    return self._custo
+  @custo.setter
+  def custo(self, novo_custo):
+    if novo_custo>=0:
+      self._custo= novo_custo
+  @property
+  def pessoa(self):
+    return self._pessoa
+  @pessoa.setter
+  def pessoa(self, nova_pessoa):
+    self._pessoa= nova_pessoa
+  def __str__(self):
+    return "Processo:\nDescrição: {}\nCusto: {}\nDecisão: {}\nStatus: {}\nPessoa: {}\nAdvogado(a): {}\nAudiencias: {}".format(self._descricao, self._custo, self._decisao, self._status, self._pessoa, self._advogado, self._audiencias)
