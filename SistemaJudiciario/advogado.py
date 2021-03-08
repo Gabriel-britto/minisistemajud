@@ -24,5 +24,8 @@ class Advogado:
   @processos.setter
   def processos(self, novo_processo):
     self._processosadv = novo_processo
+  def lista_clientes():
+    for i in range(len(lista)):
+      return lista[i].pessoa.nome
   def __str__(self):
     return "OAB: {}, Nome: {}, Processos: {}".format(self.cod_oab, self.nome_adv, self.processos)

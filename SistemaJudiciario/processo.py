@@ -21,10 +21,34 @@ class Processo:
     if novo_custo>=0:
       self._custo= novo_custo
   @property
+  def decisao(self):
+    return self._decisao
+  @decisao.setter
+  def decisao(self, nova_decisao):
+    self.decisao = nova_decisao
+  @property
+  def status(self):
+    return self._status
+  @status.setter
+  def status(self,novo_status):
+    self.status = novo_status
+  @property
   def pessoa(self):
     return self._pessoa
   @pessoa.setter
   def pessoa(self, nova_pessoa):
     self._pessoa= nova_pessoa
+  @property
+  def advogado(self):
+    return self._advogado
+  @advogado.setter
+  def advogado(self, novo_advogado):
+    self._advogado = novo_advogado
+  @property
+  def audiencias(self):
+    return self._audiencias
+  @audiencias.setter
+  def audiencias(self, nova_audiencia):
+    self.audiencias = nova_audiencia
   def __str__(self):
     return "Processo:\nDescrição: {}\nCusto: {}\nDecisão: {}\nStatus: {}\nPessoa: {}\nAdvogado(a): {}\nAudiencias: {}".format(self._descricao, self._custo, self._decisao, self._status, self._pessoa, self._advogado, self._audiencias)
